@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: instagram-reels-backend
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      SCRAPER_MODE: real
+      PLAYWRIGHT_HEADLESS: "true"
+      REELS_CACHE_TTL_MS: 300000
+      REELS_CACHE_MAX_ENTRIES: 200
+      REELS_NEGATIVE_CACHE_TTL_MS: 60000
+      REELS_NEGATIVE_CACHE_MAX_ENTRIES: 200
+      RATE_LIMIT_MAX_REQUESTS: 10
+      RATE_LIMIT_WINDOW_MS: 60000
+      SCRAPER_RETRY_MAX_ATTEMPTS: 3
+      SCRAPER_RETRY_INITIAL_DELAY_MS: 750
+      SCRAPER_RETRY_MAX_DELAY_MS: 4000
+      FACEBOOK_CROSSPOST_HEURISTIC_ENABLED: "false"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: instagram-reels-frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"

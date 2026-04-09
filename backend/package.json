@@ -1,0 +1,19 @@
+{
+  "name": "instagram-reels-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backend MVP para listar Reels recentes de um perfil publico do Instagram.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "playwright:install": "playwright install chromium",
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "fastify": "^5.2.1",
+    "playwright": "^1.59.1"
+  }
+}
