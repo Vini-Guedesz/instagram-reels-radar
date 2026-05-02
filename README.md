@@ -1,20 +1,20 @@
 # Instagram Reels Radar (Fastify + React)
 
-Instagram Reels Radar is a fullstack application that fetches the 20 most recent reels from a public Instagram profile and generates quick marketing-oriented metrics.
+Instagram Reels Radar e uma aplicacao fullstack que busca os 20 reels mais recentes de um perfil publico do Instagram e gera metricas para apoio a decisoes de marketing.
 
-## ✨ Features
+## Funcionalidades
 
-- 🎯 Reel analytics focused on decision support:
-  - Views, likes, comments, caption and publish date
-  - Aggregated averages and highlights (best/worst engagement)
-- 🧠 Smart data handling:
-  - Pinned reels excluded from "most recent" list
-  - In-memory cache + negative cache
-  - Retry with backoff for transient failures
-  - Rate limit per IP
-- 🖥️ Simple dashboard for fast analysis
+- Analise de reels orientada a decisao:
+  - views, likes, comentarios, legenda e data de publicacao
+  - medias agregadas e destaques de maior/menor engajamento
+- Tratamento inteligente dos dados:
+  - exclusao de reels fixados da lista de recentes
+  - cache em memoria + cache negativo
+  - retry com backoff para falhas transientes
+  - rate limit por IP
+- Dashboard simples para leitura rapida
 
-## 🛠️ Tech Stack
+## Stack
 
 ### Backend
 
@@ -31,28 +31,28 @@ Instagram Reels Radar is a fullstack application that fetches the 20 most recent
 
 - Docker + Docker Compose
 
-## 📦 Installation
+## Instalacao
 
 ```bash
-# Clone repository
+# Clonar repositorio
 git clone https://github.com/Vini-Guedesz/instagram-reels-radar.git
 
-# Enter project folder
+# Entrar no projeto
 cd instagram-reels-radar
 ```
 
-### Run with Docker
+### Rodar com Docker
 
 ```bash
 docker compose up --build
 ```
 
-App URLs:
+URLs da aplicacao:
 
 - Frontend: `http://localhost:8080`
 - Backend: `http://localhost:3000`
 
-### Run locally
+### Rodar localmente
 
 ```bash
 # Backend
@@ -66,7 +66,7 @@ npm install
 npm run dev
 ```
 
-## 🧩 Project Structure
+## Estrutura do projeto
 
 ```text
 .
@@ -81,9 +81,9 @@ npm run dev
 └── docker-compose.yml
 ```
 
-## 📌 Roadmap
+## Roadmap
 
-- [ ] Add automated backend tests for scraper and services
-- [ ] Add distributed cache option (Redis)
-- [ ] Improve trend visualizations in dashboard
-- [ ] Add observability metrics and structured logs
+- [ ] Adicionar testes automatizados no backend (scraper e servicos)
+- [ ] Adicionar opcao de cache distribuido (Redis)
+- [ ] Melhorar visualizacao de tendencia no dashboard
+- [ ] Adicionar metricas de observabilidade e logs estruturados
