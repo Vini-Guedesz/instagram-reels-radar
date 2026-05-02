@@ -1,13 +1,20 @@
-# Instagram Reels Radar
+# Instagram Reels Radar (Fastify + React)
 
-Aplicacao fullstack para analisar os 20 Reels mais recentes de um perfil publico do Instagram e gerar metricas para apoio a decisoes de marketing.
+Instagram Reels Radar is a fullstack application that fetches the 20 most recent reels from a public Instagram profile and generates quick marketing-oriented metrics.
 
-## Status
+## ✨ Features
 
-- Ativo
-- MVP funcional com scraper real e dashboard web
+- 🎯 Reel analytics focused on decision support:
+  - Views, likes, comments, caption and publish date
+  - Aggregated averages and highlights (best/worst engagement)
+- 🧠 Smart data handling:
+  - Pinned reels excluded from "most recent" list
+  - In-memory cache + negative cache
+  - Retry with backoff for transient failures
+  - Rate limit per IP
+- 🖥️ Simple dashboard for fast analysis
 
-## Stack
+## 🛠️ Tech Stack
 
 ### Backend
 
@@ -22,87 +29,61 @@ Aplicacao fullstack para analisar os 20 Reels mais recentes de um perfil publico
 
 ### Infra
 
-- Docker e Docker Compose
+- Docker + Docker Compose
 
-## Funcionalidades
+## 📦 Installation
 
-- Coleta dos 20 Reels mais recentes de um perfil publico
-- Exclusao de Reels fixados na analise
-- Metricas por Reel: views, likes, comentarios, legenda e data
-- Resumo agregado com medias e destaques de maior e menor interacao
-- Cache em memoria e cache negativo
-- Retry com backoff
-- Rate limit por IP
+```bash
+# Clone repository
+git clone https://github.com/Vini-Guedesz/instagram-reels-radar.git
 
-## Como executar
+# Enter project folder
+cd instagram-reels-radar
+```
 
-### Com Docker
+### Run with Docker
 
 ```bash
 docker compose up --build
 ```
 
-Acessos:
+App URLs:
 
 - Frontend: `http://localhost:8080`
 - Backend: `http://localhost:3000`
 
-Parar ambiente:
+### Run locally
 
 ```bash
-docker compose down
-```
-
-### Local
-
-Backend:
-
-```bash
+# Backend
 cd backend
 npm install
 npm start
-```
 
-Frontend:
-
-```bash
-cd frontend
+# Frontend
+cd ../frontend
 npm install
 npm run dev
 ```
 
-## Endpoints principais
+## 🧩 Project Structure
 
-- `GET /health`
-- `GET /api/reels/:username`
-
-Exemplo:
-
-```http
-GET http://localhost:3000/api/reels/instagram
+```text
+.
+├── backend/
+│   └── src/
+│       ├── config/
+│       ├── routes/
+│       ├── scrapers/
+│       └── services/
+├── frontend/
+│   └── src/
+└── docker-compose.yml
 ```
 
-## Estrutura
+## 📌 Roadmap
 
-- `backend/src/config`: configuracoes
-- `backend/src/routes`: rotas da API
-- `backend/src/scrapers`: extracao de dados
-- `backend/src/services`: regras e agregacoes
-- `frontend/src`: dashboard e componentes visuais
-
-## Limitacoes do MVP
-
-- Dependencia da estrutura publica do Instagram
-- Sem persistencia em banco de dados
-- Cross-post para Facebook fora do escopo atual
-
-## Roadmap
-
-- Adicionar testes automatizados do backend
-- Evoluir observabilidade e logs
-- Avaliar cache distribuido para escala
-- Melhorar visualizacao de tendencia no frontend
-
-## Autor
-
-Desenvolvido por [Vinicius Guedes](https://github.com/Vini-Guedesz).
+- [ ] Add automated backend tests for scraper and services
+- [ ] Add distributed cache option (Redis)
+- [ ] Improve trend visualizations in dashboard
+- [ ] Add observability metrics and structured logs
