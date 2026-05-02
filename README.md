@@ -80,10 +80,3 @@ npm run dev
 │   └── src/
 └── docker-compose.yml
 ```
-
-## Roadmap
-
-- [ ] Adicionar testes automatizados no backend (scraper e servicos)
-- [ ] Adicionar opcao de cache distribuido (Redis)
-- [ ] Melhorar visualizacao de tendencia no dashboard
-- [ ] Adicionar metricas de observabilidade e logs estruturados
